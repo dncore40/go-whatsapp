@@ -264,7 +264,9 @@ func (wac *Conn) Login(qrChan chan<- string) (Session, error) {
 	}
 
 	info := resp2[1].(map[string]interface{})
-
+	if info == nil {
+		return session,fmt.Errorf("wa is md")
+	}	
 	wac.Info = newInfoFromReq(info)
 
 	session.ClientToken = info["clientToken"].(string)
