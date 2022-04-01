@@ -264,6 +264,7 @@ func (wac *Conn) Login(qrChan chan<- string) (Session, error) {
 	}
 
 	info := resp2[1].(map[string]interface{})
+	fmt.Println(info)
 	if info == nil {
 		return session,fmt.Errorf("wa is md")
 	}	
